@@ -15,8 +15,13 @@ if ! [[ -d $dir ]]; then
 fi
 
 for f in ${dir}/*.pdf; do
+    if [[ $f =~ _protected.pdf ]]
+    then
+      printf "Skiping $f\n";
+      continue
+    fi
     printf "encrypting $f ...\n";
-    qpdf --encrypt $password $password 40 -- $f ${f/%.pdf/_protected.pdf};
+    qpdf --encrypt $password $password 40 -- "$f" "${f/%.pdf/_protected.pdf}";
 done
 
 printf "encrypting done\n";
