@@ -21,7 +21,7 @@ encrypting done
 # Remove the uncrypted files
 ## Double check before you delete
 find . -maxdepth 1 ! -path "*_protected.pdf" -path "*.pdf" 
-find . -maxdepth 1 ! -path "*_protected.pdf" -path "*.pdf" --delete
+find . -maxdepth 1 ! -path "*_protected.pdf" -path "*.pdf" -delete
 ```
 
 
